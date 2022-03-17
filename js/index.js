@@ -1,3 +1,18 @@
+//********** WORK IN PROGRESS **********
+
+// document.addEventListener("DOMContentLoaded", pageLanding);
+
+// function pageLanding() {
+//     fetch("http://makeup-api.herokuapp.com/api/v1/products.json")
+//     .then(response => response.json())
+//     .then(data => {
+//         data.forEach(element => {
+//             const name = document.createElement("p");
+//             name.innerHTML = element.name;
+//             document.querySelector(".main").appendChild(name);
+//         })})
+// }
+
 //********** GENERAL FUNCTIONS **********
 
 //Handle Click Event
@@ -20,7 +35,6 @@ const blush = document.querySelector("#blush");
 blush.addEventListener("click", blushBtn);
 
 function blushBtn() {
-    console.log("clicked");
     //Add Title
     let id = "BLUSH";
     addTitle(id);
@@ -35,7 +49,6 @@ const bronzer = document.querySelector("#bronzer");
 bronzer.addEventListener("click", bronzerBtn);
 
 function bronzerBtn() {
-    console.log("clicked");
     //Add Title
     let id = "BRONZER";
     addTitle(id);
@@ -51,7 +64,6 @@ const eyebrow = document.querySelector("#eyebrow");
 eyebrow.addEventListener("click", eyebrowBtn);
 
 function eyebrowBtn() {
-    console.log("clicked");
     //Add Title
     let id = "EYEBROW";
     addTitle(id);
@@ -67,7 +79,6 @@ const eyeliner = document.querySelector("#eyeliner");
 eyeliner.addEventListener("click", eyelinerBtn);
 
 function eyelinerBtn() {
-    console.log("clicked");
     //Add Title
     let id = "EYELINER";
     addTitle(id);
@@ -78,16 +89,19 @@ function eyelinerBtn() {
     .then(data => data.forEach(element => handleClick(element))
     )}
 
-// document.addEventListener("DOMContentLoaded", pageLanding);
+//Eyeshadow
+const eyeshadow = document.querySelector("#eyeshadow");
+eyeshadow.addEventListener("click", eyeshadowBtn);
 
-// function pageLanding() {
-//     fetch("http://makeup-api.herokuapp.com/api/v1/products.json")
-//     .then(response => response.json())
-//     .then(data => {
-//         data.forEach(element => {
-//             const name = document.createElement("p");
-//             name.innerHTML = element.name;
-//             document.querySelector(".main").appendChild(name);
-//         })})
-// }
+function eyeshadowBtn() {
+    //Add Title
+    let id = "EYESHADOW";
+    addTitle(id);
+
+    //Fetch Eyeliner Product Line
+    fetch("http://makeup-api.herokuapp.com/api/v1/products.json?product_type=eyeshadow")
+    .then(response => response.json())
+    .then(data => data.forEach(element => handleClick(element))
+    )}
+
 

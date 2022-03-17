@@ -30,36 +30,53 @@ function blushBtn() {
     .then(response => response.json())
     .then(data => data.forEach(element => handleClick(element))
     )}
+//Bronzer
+const bronzer = document.querySelector("#bronzer");
+bronzer.addEventListener("click", bronzerBtn);
 
-    const bronzer = document.querySelector("#bronzer");
-    bronzer.addEventListener("click", bronzerBtn);
-    
-    function bronzerBtn() {
-        console.log("clicked");
-        //Add Title
-        let id = "BRONZER";
-        addTitle(id);
+function bronzerBtn() {
+    console.log("clicked");
+    //Add Title
+    let id = "BRONZER";
+    addTitle(id);
 
-        //Fetch Bronzer Product Line
-        fetch("http://makeup-api.herokuapp.com/api/v1/products.json?product_type=bronzer")
-        .then(response => response.json())
-        .then(data => data.forEach(element => handleClick(element))
-        )}
+    //Fetch Bronzer Product Line
+    fetch("http://makeup-api.herokuapp.com/api/v1/products.json?product_type=bronzer")
+    .then(response => response.json())
+    .then(data => data.forEach(element => handleClick(element))
+    )}
 
-        const eyebrow = document.querySelector("#eyebrow");
-        eyebrow.addEventListener("click", eyebrowBtn);
-        
-    function eyebrowBtn() {
-        console.log("clicked");
-        //Add Title
-        let id = "EYEBROW";
-        addTitle(id);
+//Eyebrow
+const eyebrow = document.querySelector("#eyebrow");
+eyebrow.addEventListener("click", eyebrowBtn);
 
-        //Fetch Bronzer Product Line
-        fetch("http://makeup-api.herokuapp.com/api/v1/products.json?product_type=eyebrow")
-        .then(response => response.json())
-        .then(data => data.forEach(element => handleClick(element))
-        )}
+function eyebrowBtn() {
+    console.log("clicked");
+    //Add Title
+    let id = "EYEBROW";
+    addTitle(id);
+
+    //Fetch Eyebrow Product Line
+    fetch("http://makeup-api.herokuapp.com/api/v1/products.json?product_type=eyebrow")
+    .then(response => response.json())
+    .then(data => data.forEach(element => handleClick(element))
+    )}
+
+//Eyeliner
+const eyeliner = document.querySelector("#eyeliner");
+eyeliner.addEventListener("click", eyelinerBtn);
+
+function eyelinerBtn() {
+    console.log("clicked");
+    //Add Title
+    let id = "EYELINER";
+    addTitle(id);
+
+    //Fetch Eyeliner Product Line
+    fetch("http://makeup-api.herokuapp.com/api/v1/products.json?product_type=eyeliner")
+    .then(response => response.json())
+    .then(data => data.forEach(element => handleClick(element))
+    )}
 
 // document.addEventListener("DOMContentLoaded", pageLanding);
 

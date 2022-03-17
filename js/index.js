@@ -104,4 +104,19 @@ function eyeshadowBtn() {
     .then(data => data.forEach(element => handleClick(element))
     )}
 
+//Foundation
+const foundation = document.querySelector("#foundation");
+foundation.addEventListener("click", foundationBtn);
+
+function foundationBtn() {
+    //Add Title
+    let id = "FOUNDATION";
+    addTitle(id);
+
+    //Fetch Eyeliner Product Line
+    fetch("http://makeup-api.herokuapp.com/api/v1/products.json?product_type=foundation")
+    .then(response => response.json())
+    .then(data => data.forEach(element => handleClick(element))
+    )}
+
 

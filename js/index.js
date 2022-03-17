@@ -98,7 +98,7 @@ function eyeshadowBtn() {
     let id = "EYESHADOW";
     addTitle(id);
 
-    //Fetch Eyeliner Product Line
+    //Fetch Eyeshadow Product Line
     fetch("http://makeup-api.herokuapp.com/api/v1/products.json?product_type=eyeshadow")
     .then(response => response.json())
     .then(data => data.forEach(element => handleClick(element))
@@ -113,10 +113,41 @@ function foundationBtn() {
     let id = "FOUNDATION";
     addTitle(id);
 
-    //Fetch Eyeliner Product Line
+    //Fetch Foundation Product Line
     fetch("http://makeup-api.herokuapp.com/api/v1/products.json?product_type=foundation")
     .then(response => response.json())
     .then(data => data.forEach(element => handleClick(element))
     )}
+
+//Lip Liner
+const lipLiner = document.querySelector("#lipLiner");
+lipLiner.addEventListener("click", lipLinerBtn);
+
+function lipLinerBtn() {
+    //Add Title
+    let id = "LIP LINER";
+    addTitle(id);
+
+    //Fetch Lip Liner Product Line
+    fetch("http://makeup-api.herokuapp.com/api/v1/products.json?product_type=lip_liner")
+    .then(response => response.json())
+    .then(data => data.forEach(element => handleClick(element))
+    )}
+
+//Lipstick
+const lipstick = document.querySelector("#lipstick");
+lipstick.addEventListener("click", lipstickBtn);
+
+function lipstickBtn() {
+    //Add Title
+    let id = "LIPSTICK";
+    addTitle(id);
+
+    //Fetch Lipstick Product Line
+    fetch("http://makeup-api.herokuapp.com/api/v1/products.json?product_type=lipstick")
+    .then(response => response.json())
+    .then(data => data.forEach(element => handleClick(element))
+    )}
+
 
 

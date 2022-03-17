@@ -39,7 +39,24 @@ function blushBtn() {
         //Add Title
         let id = "BRONZER";
         addTitle(id);
+
+        //Fetch Bronzer Product Line
         fetch("http://makeup-api.herokuapp.com/api/v1/products.json?product_type=bronzer")
+        .then(response => response.json())
+        .then(data => data.forEach(element => handleClick(element))
+        )}
+
+        const eyebrow = document.querySelector("#eyebrow");
+        eyebrow.addEventListener("click", eyebrowBtn);
+        
+    function eyebrowBtn() {
+        console.log("clicked");
+        //Add Title
+        let id = "EYEBROW";
+        addTitle(id);
+
+        //Fetch Bronzer Product Line
+        fetch("http://makeup-api.herokuapp.com/api/v1/products.json?product_type=eyebrow")
         .then(response => response.json())
         .then(data => data.forEach(element => handleClick(element))
         )}

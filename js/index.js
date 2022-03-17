@@ -149,5 +149,33 @@ function lipstickBtn() {
     .then(data => data.forEach(element => handleClick(element))
     )}
 
+//Mascara
+const mascara = document.querySelector("#mascara");
+mascara.addEventListener("click", mascaraBtn);
 
+function mascaraBtn() {
+    //Add Title
+    let id = "MASCARA";
+    addTitle(id);
+
+    //Fetch Mascara Product Line
+    fetch("http://makeup-api.herokuapp.com/api/v1/products.json?product_type=mascara")
+    .then(response => response.json())
+    .then(data => data.forEach(element => handleClick(element))
+    )}
+
+//Nail Polish
+const nailPolish = document.querySelector("#nailPolish");
+nailPolish.addEventListener("click", nailPolishBtn);
+
+function nailPolishBtn() {
+    //Add Title
+    let id = "NAIL POLISH";
+    addTitle(id);
+
+    //Fetch Nail Polish Product Line
+    fetch("http://makeup-api.herokuapp.com/api/v1/products.json?product_type=nail_polish")
+    .then(response => response.json())
+    .then(data => data.forEach(element => handleClick(element))
+    )}
 

@@ -12,14 +12,19 @@ document.addEventListener("DOMContentLoaded", () =>
     //     results.appendChild(name);
     // }
     function handleClick(element) {
-        const productBlock = document.createElement("p");
-        productBlock.innerHTML = `${element.brand.toUpperCase()} ${element.name}  $${element.price}0`;
-        results.appendChild(productBlock);
+        const productInfo = document.createElement("p");
+        productInfo.innerText = `${element.brand.toUpperCase()}     ${element.name}\n$${element.price}0`;
+        const img = document.createElement("img");
+        img.setAttribute("src", element.image_link)
+        img.setAttribute("height", "100");
+        img.setAttribute("width", "100");
+        results.appendChild(productInfo);
+        results.appendChild(img);
     }
     //Add Title
     function addTitle(id) {
         const title = document.createElement("p");
-        title.innerText = id; 
+        title.innerText = `${id} \n\n If Price is Shown as $0.00, Item is Currently Sold Out`; 
         results.appendChild(title);
     }
     //Create an Array of Buttons Utilizing Button Variables

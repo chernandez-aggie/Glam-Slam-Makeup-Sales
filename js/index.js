@@ -12,14 +12,17 @@ document.addEventListener("DOMContentLoaded", () =>
     //     results.appendChild(name);
     // }
     function handleClick(element) {
-        const productInfo = document.createElement("p");
-        productInfo.innerText = `${element.brand.toUpperCase()}     ${element.name}\n$${element.price}0`;
+        const productName = document.createElement("p");
+        productName.innerText = `${element.brand.toUpperCase()}     ${element.name}\n$${element.price}0`;
         const img = document.createElement("img");
         img.setAttribute("src", element.image_link)
         img.setAttribute("height", "100");
         img.setAttribute("width", "100");
-        results.appendChild(productInfo);
+        const productDescription = document.createElement("p");
+        productDescription.innerText = element.description;
+        results.appendChild(productName);
         results.appendChild(img);
+        results.appendChild(productDescription);
     }
     //Add Title
     function addTitle(id) {

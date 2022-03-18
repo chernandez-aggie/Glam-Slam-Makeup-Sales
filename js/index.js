@@ -6,10 +6,15 @@ document.addEventListener("DOMContentLoaded", () =>
     const results = document.querySelector(".results");
 
     //Handle Click Event
+    // function handleClick(element) {
+    //     const name = document.createElement("p");
+    //     name.innerText = element.name;
+    //     results.appendChild(name);
+    // }
     function handleClick(element) {
-        const name = document.createElement("p");
-        name.innerText = element.name;
-        results.appendChild(name);
+        const productBlock = document.createElement("p");
+        productBlock.innerHTML = `${element.brand.toUpperCase()} ${element.name}  $${element.price}0`;
+        results.appendChild(productBlock);
     }
     //Add Title
     function addTitle(id) {
@@ -34,9 +39,10 @@ document.addEventListener("DOMContentLoaded", () =>
 
     //Callback Function - Appends Product List to Page
     function productBtn (e){
+        //Clear Page Content
+        results.innerHTML = "";
         //Add Title
         let id = e.target.id.toUpperCase();
-        results.innerHTML = "";
         addTitle(id);
         const apiURL = "http://makeup-api.herokuapp.com/api/v1/products.json?product_type=" + id.toLowerCase();
         //Fetch Blush Product Line

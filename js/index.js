@@ -8,17 +8,28 @@ document.addEventListener("DOMContentLoaded", () =>
     //Callback Functions for Event Listeners    
         //Handle Click Event
     function handleClick(element) {
-        const productName = document.createElement("p");
-        productName.innerText = `${element.brand.toUpperCase()}\n${element.name}            $${element.price}0`;
+        // element.id
+        const productInfo = document.createElement("p");
+        productInfo.setAttribute("id", "productName");
+        productInfo.innerText = `${element.brand.toUpperCase()}\n${element.name}            $${element.price}0`;
         const img = document.createElement("img");
+        img.setAttribute("id","img" + element.id)
         img.setAttribute("src", element.image_link)
         img.setAttribute("height", "150");
         img.setAttribute("width", "150");
         const productDescription = document.createElement("p");
-        productDescription.innerText = element.description;
-        results.appendChild(productName);
+        productDescription.innerHTML = element.description;
+        results.appendChild(productInfo);
         results.appendChild(img);
-        //results.appendChild(productDescription);
+        results.appendChild(productDescription);
+        img.addEventListener("mouseover", (e) => {
+            e.target.width = 300;
+            e.target.height = 300;
+        }); 
+        img.addEventListener("mouseleave", (e) => {
+            e.target.width = 150;
+            e.target.height = 150;
+        });
     }
         //Add Title
     function addTitle(id) {
@@ -31,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () =>
     function handleHover(){
         console.log("HOVERED");
     }
+
     //Create an Array of Buttons
     //Add Click Event Listener to Each Button
     const blush = document.querySelector("#blush");
@@ -62,3 +74,5 @@ document.addEventListener("DOMContentLoaded", () =>
 
 
 });
+
+{/* <div class="myclass" onmouseover="showDesc(" + id + ")"> */}

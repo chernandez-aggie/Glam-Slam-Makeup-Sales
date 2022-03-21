@@ -6,26 +6,35 @@ document.addEventListener("DOMContentLoaded", () =>
     const results = document.querySelector(".results");
     
     //Callback Functions for Event Listeners    
-        //Handle Click Event
-    function handleClick(element) {
-        // element.id
+        //Product Display
+    function productDisplay(element) {
+        //Product Information
         const productInfo = document.createElement("p");
-        productInfo.setAttribute("id", "productName");
-        productInfo.innerText = `${element.brand.toUpperCase()}\n${element.name}            $${element.price}0`;
+        productInfo.setAttribute("id", "productInfo");
+        productInfo.setAttribute("class", "text")
+        productInfo.innerText = `Brand: ${element.brand.toUpperCase()}\nProduct Name: ${element.name}\nPrice: $${element.price}0`;
+        //Product Image
         const img = document.createElement("img");
-        img.setAttribute("id","img" + element.id)
-        img.setAttribute("src", element.image_link)
+        img.setAttribute("id","img" + element.id);
+        img.setAttribute("class", "image");
+        img.setAttribute("src", element.image_link);
         img.setAttribute("height", "150");
         img.setAttribute("width", "150");
+        //Product Description
         const productDescription = document.createElement("p");
+        productDescription.setAttribute("id", "productDescription");
+        productDescription.setAttribute("class", "text");
         productDescription.innerHTML = element.description;
+        //Append to Page
         results.appendChild(productInfo);
         results.appendChild(img);
         results.appendChild(productDescription);
+        //Mouseover Event Listener - Enlarge product image size
         img.addEventListener("mouseover", (e) => {
             e.target.width = 300;
             e.target.height = 300;
         }); 
+        //Mouseleave Event Listener - Reduce product image size
         img.addEventListener("mouseleave", (e) => {
             e.target.width = 150;
             e.target.height = 150;
@@ -34,13 +43,10 @@ document.addEventListener("DOMContentLoaded", () =>
         //Add Title
     function addTitle(id) {
         const title = document.createElement("p");
+        title.setAttribute("id", "title");
+        title.setAttribute("class", "text");
         title.innerText = `${id} \n\n If Price is Shown as $0.00, Item is Currently Sold Out`; 
         results.appendChild(title);
-    }
-
-        //Handle Hover Event
-    function handleHover(){
-        console.log("HOVERED");
     }
 
     //Create an Array of Buttons
@@ -69,10 +75,7 @@ document.addEventListener("DOMContentLoaded", () =>
         //Fetch Blush Product Line
         fetch(apiURL)
         .then(response => response.json())
-        .then(data => data.forEach(element => handleClick(element)))     
+        .then(data => data.forEach(element => productDisplay(element)))     
     } 
 
-
 });
-
-{/* <div class="myclass" onmouseover="showDesc(" + id + ")"> */}

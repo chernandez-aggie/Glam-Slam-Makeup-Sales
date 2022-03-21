@@ -1,7 +1,23 @@
-#pageHeading {text-align: center; 100%};
+
+body {
+    background-color: pink;
+}
+.text {
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    font-size: medium;
+    color: purple;
+}
+#pageTitle {
+    font-size: xx-large;
+}
+#welcomeMsg {
+    font-size: large;
+}
 .buttons {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
+    text-align: center;
+}
+.image {
+    text-align: center;
 }

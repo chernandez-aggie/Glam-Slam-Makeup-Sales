@@ -4,33 +4,34 @@ document.addEventListener("DOMContentLoaded", () =>
 
     //Where Product Information is Appended
     const results = document.querySelector(".results");
-
-    //Handle Click Event
-    // function handleClick(element) {
-    //     const name = document.createElement("p");
-    //     name.innerText = element.name;
-    //     results.appendChild(name);
-    // }
+    
+    //Callback Functions for Event Listeners    
+        //Handle Click Event
     function handleClick(element) {
         const productName = document.createElement("p");
-        productName.innerText = `${element.brand.toUpperCase()}     ${element.name}\n$${element.price}0`;
+        productName.innerText = `${element.brand.toUpperCase()}\n${element.name}            $${element.price}0`;
         const img = document.createElement("img");
         img.setAttribute("src", element.image_link)
-        img.setAttribute("height", "100");
-        img.setAttribute("width", "100");
+        img.setAttribute("height", "150");
+        img.setAttribute("width", "150");
         const productDescription = document.createElement("p");
         productDescription.innerText = element.description;
         results.appendChild(productName);
         results.appendChild(img);
-        results.appendChild(productDescription);
+        //results.appendChild(productDescription);
     }
-    //Add Title
+        //Add Title
     function addTitle(id) {
         const title = document.createElement("p");
         title.innerText = `${id} \n\n If Price is Shown as $0.00, Item is Currently Sold Out`; 
         results.appendChild(title);
     }
-    //Create an Array of Buttons Utilizing Button Variables
+
+        //Handle Hover Event
+    function handleHover(){
+        console.log("HOVERED");
+    }
+    //Create an Array of Buttons
     //Add Click Event Listener to Each Button
     const blush = document.querySelector("#blush");
     const bronzer = document.querySelector("#bronzer");
@@ -45,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () =>
     const btnArray = [blush, bronzer, eyebrow,eyeliner,eyeshadow,foundation,lipLiner,lipstick,mascara,nailPolish];
     btnArray.forEach(button => button.addEventListener("click", productBtn));
 
-    //Callback Function - Appends Product List to Page
+    //Fetch Methods Invoked
     function productBtn (e){
         //Clear Page Content
         results.innerHTML = "";
@@ -56,6 +57,8 @@ document.addEventListener("DOMContentLoaded", () =>
         //Fetch Blush Product Line
         fetch(apiURL)
         .then(response => response.json())
-        .then(data => data.forEach(element => handleClick(element)))
-    }
+        .then(data => data.forEach(element => handleClick(element)))     
+    } 
+
+
 });

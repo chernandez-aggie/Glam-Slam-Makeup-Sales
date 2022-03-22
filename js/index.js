@@ -13,10 +13,14 @@ document.addEventListener("DOMContentLoaded", () =>
         productInfo.setAttribute("id", "productInfo");
         productInfo.setAttribute("class", "text");
         productInfo.innerText = `Brand: ${element.brand.toUpperCase()}\nProduct Name: ${element.name}`;
+        //Product Price
+        const productPrice = document.createElement("p");
+        productPrice.setAttribute("id", "productPrice");
+        productPrice.setAttribute("class", "text");
         if(element.price == 0.0){
-            productInfo.innerText = productInfo.innerText + "\nSOLD OUT";
+            productPrice.innerText = `\nSOLD OUT`;
         } else {
-            productInfo.innerText = productInfo.innerText + `\nPrice: $${element.price}0`;
+            productPrice.innerText = `\nPrice: $${element.price}0`;
             }
         //Product Image
         const img = document.createElement("img");
@@ -32,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () =>
         productDescription.innerHTML = element.description;
         //Append to Page
         results.appendChild(productInfo);
+        results.appendChild(productPrice);
         results.appendChild(img);
         results.appendChild(productDescription);
         //Mouseover Event Listener - Enlarge product image size
@@ -47,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () =>
     }
         //Add Title
     function addTitle(id) {
-        const title = document.createElement("p");
+        const title = document.createElement("h3");
         title.setAttribute("id", "title");
         title.setAttribute("class", "text");
         title.innerText = `${id}`; 

@@ -10,12 +10,20 @@ body {
     font-size: medium;
     color: purple;
 }
-#pageTitle {
-    font-size: xx-large;
-}
+
 #welcomeMsg {
     font-size: large;
 }
+#title {
+    color: white;
+    font-size: x-large;
+    border: 2px solid blueviolet;
+    background-color: blueviolet;
+}
+#productInfo {
+    font-style: normal;
+}
+
 /*Buttons Style*/
 #buttons {
     text-align: center;

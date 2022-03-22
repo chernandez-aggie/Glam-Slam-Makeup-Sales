@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () =>
 
     //Where Product Information is Appended
     const results = document.querySelector(".results");
-    
+    const image = results.querySelector("#image");
     //Callback Functions for Event Listeners    
         //Product Display
     function productDisplay(element) {
@@ -12,10 +12,17 @@ document.addEventListener("DOMContentLoaded", () =>
         const productInfo = document.createElement("p");
         productInfo.setAttribute("id", "productInfo");
         productInfo.setAttribute("class", "text")
-        productInfo.innerText = `Brand: ${element.brand.toUpperCase()}\nProduct Name: ${element.name}\nPrice: $${element.price}0`;
+        const soldOut = "SOLD OUT";
+        soldOut.setAttribute("id", "soldOut");
+        if(element.price != "0.0"){
+        productInfo.innerText = `Brand: ${element.brand.toUpperCase()}\nProduct Name: ${element.name}\nPrice: $${element.price}0`; }
+            else {
+                productInfo.innerText = `Brand: ${element.brand.toUpperCase()}\nProduct Name: ${element.name}\n${soldOut}`;
+            }
+        }
         //Product Image
         const img = document.createElement("img");
-        img.setAttribute("id","img" + element.id);
+        img.setAttribute("id", "img" + element.id);
         img.setAttribute("class", "image");
         img.setAttribute("src", element.image_link);
         img.setAttribute("height", "150");

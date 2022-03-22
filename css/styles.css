@@ -1,7 +1,8 @@
-
+/*Page Background Color*/
 body {
     background-color: pink;
 }
+/*Text Style*/
 .text {
     text-align: center;
     font-weight: bold;
@@ -15,69 +16,19 @@ body {
 #welcomeMsg {
     font-size: large;
 }
-.buttons {
+/*Buttons Style*/
+#buttons {
+    text-align: center;
+}  
+ #blush,#bronzer,#eyebrow,#eyeliner,#eyeshadow,#foundation,#lip_liner,#lipstick,#mascara,#nail_polish {
+    background-color: bisque;
+    border:2px solid blueviolet;
+    color:blueviolet;
+    font-weight: bold;
+} 
+/*Image Style*/
+.results{
     text-align: center;
 }
-#blush {
-    background-color: bisque;
-    border:2px solid blueviolet;
-    color:blueviolet;
-    font-weight: bold;
-}
-#bronzer {
-    background-color: bisque;
-    border:2px solid blueviolet;
-    color:blueviolet;
-    font-weight: bold;
-}
-#eyebrow {
-    background-color: bisque;
-    border:2px solid blueviolet;
-    color:blueviolet;
-    font-weight: bold;
-}
-#eyeliner {
-    background-color: bisque;
-    border:2px solid blueviolet;
-    color:blueviolet;
-    font-weight: bold;
-}
-#eyeshadow {
-    background-color: bisque;
-    border:2px solid blueviolet;
-    color:blueviolet;
-    font-weight: bold;
-}
-#foundation {
-    background-color: bisque;
-    border:2px solid blueviolet;
-    color:blueviolet;
-    font-weight: bold;
-}
-#lip_liner {
-    background-color: bisque;
-    border:2px solid blueviolet;
-    color:blueviolet;
-    font-weight: bold;
-}
-#lipstick {
-    background-color: bisque;
-    border:2px solid blueviolet;
-    color:blueviolet;
-    font-weight: bold;
-}
-#mascara {
-    background-color: bisque;
-    border:2px solid blueviolet;
-    color:blueviolet;
-    font-weight: bold;
-}
-#nail_polish {
-    background-color: bisque;
-    border:2px solid blueviolet;
-    color:blueviolet;
-    font-weight: bold;
-}
-.image {
-    text-align: center;
+
 }

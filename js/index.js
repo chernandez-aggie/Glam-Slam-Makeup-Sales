@@ -11,15 +11,13 @@ document.addEventListener("DOMContentLoaded", () =>
         //Product Information
         const productInfo = document.createElement("p");
         productInfo.setAttribute("id", "productInfo");
-        productInfo.setAttribute("class", "text")
-        const soldOut = "SOLD OUT";
-        soldOut.setAttribute("id", "soldOut");
-        if(element.price != "0.0"){
-        productInfo.innerText = `Brand: ${element.brand.toUpperCase()}\nProduct Name: ${element.name}\nPrice: $${element.price}0`; }
-            else {
-                productInfo.innerText = `Brand: ${element.brand.toUpperCase()}\nProduct Name: ${element.name}\n${soldOut}`;
+        productInfo.setAttribute("class", "text");
+        productInfo.innerText = `Brand: ${element.brand.toUpperCase()}\nProduct Name: ${element.name}`;
+        if(element.price == 0.0){
+            productInfo.innerText = productInfo.innerText + "\nSOLD OUT";
+        } else {
+            productInfo.innerText = productInfo.innerText + `\nPrice: $${element.price}0`;
             }
-        }
         //Product Image
         const img = document.createElement("img");
         img.setAttribute("id", "img" + element.id);
@@ -52,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () =>
         const title = document.createElement("p");
         title.setAttribute("id", "title");
         title.setAttribute("class", "text");
-        title.innerText = `${id} \n\n If Price is Shown as $0.00, Item is Currently Sold Out`; 
+        title.innerText = `${id}`; 
         results.appendChild(title);
     }
 

@@ -1,4 +1,4 @@
-# SweetFacts
+# GLAM SLAM MAKEUP
 
 ## Description
 

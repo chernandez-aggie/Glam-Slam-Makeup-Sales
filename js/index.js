@@ -4,9 +4,10 @@ document.addEventListener("DOMContentLoaded", () =>
 
     //Where Product Information is Appended
     const results = document.querySelector(".results");
-    const image = results.querySelector("#image");
+    
     //Callback Functions for Event Listeners    
-        //Product Display
+    
+    //Product Display
     function productDisplay(element) {
         //Product Information
         const productInfo = document.createElement("p");
@@ -39,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () =>
         results.appendChild(productPrice);
         results.appendChild(img);
         results.appendChild(productDescription);
+
         //Mouseover Event Listener - Enlarge product image size
         img.addEventListener("mouseover", (e) => {
             e.target.width = 300;
@@ -50,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () =>
             e.target.height = 150;
         });
     }
-        //Add Title
+    //Add Title
     function addTitle(id) {
         const title = document.createElement("h3");
         title.setAttribute("id", "title");
@@ -58,6 +60,10 @@ document.addEventListener("DOMContentLoaded", () =>
         title.innerText = `${id}`; 
         results.appendChild(title);
     }
+
+    //Subscribe 
+    const form = document.getElementById("signUp");
+    form.addEventListener("submit", e => console.log(e));
 
     //Create an Array of Buttons
     //Add Click Event Listener to Each Button

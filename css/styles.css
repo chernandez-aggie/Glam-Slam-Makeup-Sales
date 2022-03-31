@@ -10,7 +10,17 @@ body {
     font-size: medium;
     color: purple;
 }
-
+#signUp {
+    text-align: center;
+    font-weight: bold;
+    font-style: normal;
+    font-size: small;
+    color: black;
+}   
+}
+#contactInfo {
+    font-style: normal;
+}
 #welcomeMsg {
     font-size: large;
 }
@@ -37,6 +47,4 @@ body {
 /*Image Style*/
 .results{
     text-align: center;
-}
-
 }

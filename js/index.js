@@ -7,6 +7,13 @@ document.addEventListener("DOMContentLoaded", () =>
     
     //Callback Functions for Event Listeners    
     
+    //Sign Up Confirmation
+    function signUpConfirmation (event) {
+        event.preventDefault();
+        signUpBox.innertext = "Thanks for signing up, expect to receive exclusive Glam Slam Makeup deals within the next 1-2 business days.";
+        console.log("success")
+        event.target.reset();
+    }
     //Product Display
     function productDisplay(element) {
         //Product Information
@@ -61,9 +68,12 @@ document.addEventListener("DOMContentLoaded", () =>
         results.appendChild(title);
     }
 
-    //Subscribe 
-    const form = document.getElementById("signUp");
-    form.addEventListener("submit", e => console.log(e));
+    // //Subscribe 
+    const form = document.querySelectorAll("signUp");
+    signUpBox = document.querySelectorAll(".signUpBox");
+    form.addEventListener("submit", signUpConfirmation);
+
+
 
     //Create an Array of Buttons
     //Add Click Event Listener to Each Button

@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () =>
     //Sign Up Confirmation
     function signUpConfirmation (event) {
         event.preventDefault();
-        signUpBox.innertext = "Thanks for signing up, expect to receive exclusive Glam Slam Makeup deals within the next 1-2 business days.";
+        form.innerHTML = "Thanks for signing up, expect to receive exclusive Glam Slam Makeup deals within the next 1-2 business days.";
         console.log("success")
         event.target.reset();
     }
@@ -69,10 +69,8 @@ document.addEventListener("DOMContentLoaded", () =>
     }
 
     // //Subscribe 
-    const form = document.querySelectorAll("signUp");
-    signUpBox = document.querySelectorAll(".signUpBox");
+    const form = document.getElementById("signUp");
     form.addEventListener("submit", signUpConfirmation);
-
 
 
     //Create an Array of Buttons

@@ -1,1 +1,14 @@
-{"subscribers": []}
+{
+  "subscribers": [
+    {
+      "name": "Candace Hernandez",
+      "email": "chernandez.aggie@gmail.com",
+      "id": 1
+    },
+    {
+      "name": "John Doe",
+      "email": "johndoe@gmail.com",
+      "id": 2
+    }
+  ]
+}

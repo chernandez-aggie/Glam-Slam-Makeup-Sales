@@ -2,6 +2,7 @@
 body {
     background-color: pink;
 }
+
 /*Text Style*/
 .text {
     text-align: center;
@@ -11,11 +12,15 @@ body {
     color: purple;
 }
 #signUp {
+    background-color:mediumpurple;
+    border-radius: 5in;
+    border-style: groove;
+    border-color: white; 
     text-align: center;
     font-weight: bold;
     font-style: normal;
-    font-size: small;
-    color: black;
+    font-size: medium;
+    color:white;
 }   
 }
 #contactInfo {

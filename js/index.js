@@ -7,13 +7,30 @@ document.addEventListener("DOMContentLoaded", () =>
     
     //Callback Functions for Event Listeners    
     
-    //Sign Up Confirmation
-    function signUpConfirmation (event) {
+    //Handle Submit (frontend/backend)
+    function handleSubmit (event) {
         event.preventDefault();
+        let subscriber = {
+            name: event.target.name.value,
+            email: event.target.email.value,
+        };
         form.innerHTML = "Thanks for signing up, expect to receive exclusive Glam Slam Makeup deals within the next 1-2 business days.";
-        console.log("success")
         event.target.reset();
+        addSubscriber(subscriber);
     }
+
+    function addSubscriber (subscriber){
+        fetch('http://localhost:3000/subscribers', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(subscriber)
+        })
+        .then(res => res.json())
+        
+    }
+
     //Product Display
     function productDisplay(element) {
         //Product Information
@@ -70,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () =>
 
     // //Subscribe 
     const form = document.getElementById("signUp");
-    form.addEventListener("submit", signUpConfirmation);
+    form.addEventListener("submit", handleSubmit);
 
 
     //Create an Array of Buttons

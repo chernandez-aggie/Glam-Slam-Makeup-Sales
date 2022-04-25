@@ -1,13 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => 
 {
-    //********** BUTTONS **********
 
-    //Where Product Information is Appended
     const results = document.querySelector(".results");
     
-    //Callback Functions for Event Listeners    
-    
-    //Handle Submit (frontend/backend)
+
     function handleSubmit (event) {
         event.preventDefault();
         let subscriber = {
@@ -31,14 +27,13 @@ document.addEventListener("DOMContentLoaded", () =>
         
     }
 
-    //Product Display
     function productDisplay(element) {
-        //Product Information
+      
         const productInfo = document.createElement("p");
         productInfo.setAttribute("id", "productInfo");
         productInfo.setAttribute("class", "text");
         productInfo.innerText = `Brand: ${element.brand.toUpperCase()}\nProduct Name: ${element.name}`;
-        //Product Price
+     
         const productPrice = document.createElement("p");
         productPrice.setAttribute("id", "productPrice");
         productPrice.setAttribute("class", "text");
@@ -47,36 +42,36 @@ document.addEventListener("DOMContentLoaded", () =>
         } else {
             productPrice.innerText = `\nPrice: $${element.price}0`;
             }
-        //Product Image
+      
         const img = document.createElement("img");
         img.setAttribute("id", "img" + element.id);
         img.setAttribute("class", "image");
         img.setAttribute("src", element.image_link);
         img.setAttribute("height", "150");
         img.setAttribute("width", "150");
-        //Product Description
+    
         const productDescription = document.createElement("p");
         productDescription.setAttribute("id", "productDescription");
         productDescription.setAttribute("class", "text");
         productDescription.innerHTML = element.description;
-        //Append to Page
+      
         results.appendChild(productInfo);
         results.appendChild(productPrice);
         results.appendChild(img);
         results.appendChild(productDescription);
 
-        //Mouseover Event Listener - Enlarge product image size
+        
         img.addEventListener("mouseover", (e) => {
             e.target.width = 300;
             e.target.height = 300;
         }); 
-        //Mouseleave Event Listener - Reduce product image size
+        
         img.addEventListener("mouseleave", (e) => {
             e.target.width = 150;
             e.target.height = 150;
         });
     }
-    //Add Title
+    
     function addTitle(id) {
         const title = document.createElement("h3");
         title.setAttribute("id", "title");
@@ -85,13 +80,12 @@ document.addEventListener("DOMContentLoaded", () =>
         results.appendChild(title);
     }
 
-    // //Subscribe 
+    
     const form = document.getElementById("signUp");
     form.addEventListener("submit", handleSubmit);
 
 
-    //Create an Array of Buttons
-    //Add Click Event Listener to Each Button
+
     const blush = document.querySelector("#blush");
     const bronzer = document.querySelector("#bronzer");
     const eyebrow = document.querySelector("#eyebrow");
@@ -105,18 +99,21 @@ document.addEventListener("DOMContentLoaded", () =>
     const btnArray = [blush, bronzer, eyebrow,eyeliner,eyeshadow,foundation,lipLiner,lipstick,mascara,nailPolish];
     btnArray.forEach(button => button.addEventListener("click", productBtn));
 
-    //Fetch Methods Invoked
+    
     function productBtn (e){
-        //Clear Page Content
+     
         results.innerHTML = "";
-        //Add Title
+    
         let id = e.target.id.toUpperCase();
         addTitle(id);
         const apiURL = "http://makeup-api.herokuapp.com/api/v1/products.json?product_type=" + id.toLowerCase();
-        //Fetch Blush Product Line
+ 
         fetch(apiURL)
         .then(response => response.json())
-        .then(data => data.forEach(element => productDisplay(element)))     
+        .then(data => {
+            
+            data.forEach(element => productDisplay(element))
+        })     
     } 
 
 });
